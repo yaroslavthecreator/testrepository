@@ -13,7 +13,7 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>4.12</version>
-            <scope>test</scope>
+            <scope>deploy</scope>
         </dependency>
         <!-- https://mvnrepository.com/artifact/log4j/log4j -->
         <dependency>
@@ -21,7 +21,30 @@
             <artifactId>log4j</artifactId>
             <version>1.2.17</version>
         </dependency>
-
     </dependencies>
 
+    <build>
+        <sourceDirectory>src/main/java</sourceDirectory>
+        <defaultGoal>install</defaultGoal>
+        <directory>${basedir}/target</directory>
+        <finalName>${artifactId}-${version}</finalName>
+        <plugins>
+            <plugin>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.6.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>exec-maven-plugin</artifactId>
+                <version>1.5.0</version>
+                <configuration>
+                    <mainClass>Test</mainClass>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 </project>

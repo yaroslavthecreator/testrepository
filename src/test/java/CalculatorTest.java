@@ -10,6 +10,5 @@ public class CalculatorTest {
         int result=calculator.sum(2,5);
         assertEquals(7,result);
     }
-    
 
 }
